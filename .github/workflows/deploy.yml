@@ -64,3 +64,17 @@ jobs:
 
           docker push \
           ${{ steps.login-ecr.outputs.registry }}/enterprise/enterprise-webapp:latest
+
+      - name: Build Admin image
+        run: |
+          docker build \
+            -f apps/admin/Dockerfile \
+            -t enterprise-admin .
+
+      - name: Push Admin image
+        run: |
+          docker tag enterprise-admin:latest \
+            ${{ steps.login-ecr.outputs.registry }}/enterprise/enterprise-admin:latest
+
+          docker push \
+            ${{ steps.login-ecr.outputs.registry }}/enterprise/enterprise-admin:latest
