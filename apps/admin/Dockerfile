@@ -51,7 +51,7 @@ COPY --from=builder \
 ./apps/admin/public
 
 
-
+ENV PORT=3001 
 EXPOSE 3001
 
 
