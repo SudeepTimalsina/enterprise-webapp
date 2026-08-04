@@ -58,8 +58,8 @@ jobs:
         run: |
 
           docker tag enterprise-web:latest \
-          ${{ secrets.ECR_REGISTRY }}/enterprise/enterprise-web:latest
+          ${{ steps.login-ecr.outputs.registry }}/enterprise/enterprise-webapp:latest
 
 
           docker push \
-          ${{ secrets.ECR_REGISTRY }}/enterprise/enterprise-web:latest
+          ${{ steps.login-ecr.outputs.registry }}/enterprise/enterprise-webapp:latest
