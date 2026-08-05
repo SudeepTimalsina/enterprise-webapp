@@ -86,8 +86,8 @@ jobs:
       - name: Deploy Web to ECS
         run: |
           aws ecs update-service \
-            --cluster ${{ env.ECS_CLUSTER }} \
-            --service ${{ env.WEB_ECS_SERVICE }} \
+            --cluster ${{ secrets.ECS_CLUSTER }} \
+            --service ${{ secrets.WEB_ECS_SERVICE }} \
             --force-new-deployment
 
       ####################################################
@@ -97,6 +97,6 @@ jobs:
       - name: Deploy Admin to ECS
         run: |
           aws ecs update-service \
-            --cluster ${{ env.ECS_CLUSTER }} \
-            --service ${{ env.ADMIN_ECS_SERVICE }} \
+            --cluster ${{ secrets.ECS_CLUSTER }} \
+            --service ${{ secrets.ADMIN_ECS_SERVICE }} \
             --force-new-deployment
